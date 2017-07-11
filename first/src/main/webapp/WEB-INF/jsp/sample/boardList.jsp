@@ -28,7 +28,7 @@
 	
 	<div id="PAGE_NAVI"></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX"/>
-	
+	<input type="hidden" id="BBS_ID" value="1">
 	<br/>
 	<a href="#this" class="btn" id="write">글쓰기</a>
 	
@@ -58,7 +58,8 @@
 		function fn_openBoardDetail(obj){
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
-			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.addParam("BBS_ID", $("#BBS_ID").val());
+			comSubmit.addParam("POST_ID", obj.parent().find("#post_id").val());
 			comSubmit.submit();
 		}
 		
@@ -94,10 +95,10 @@
 				var str = "";
 				$.each(data.list, function(key, value){
 					str += "<tr>" + 
-								"<td>" + value.IDX + "</td>" + 
+								"<td>" + value.RNUM + "</td>" + 
 								"<td class='title'>" +
 									"<a href='#this' name='title'>" + value.TITLE + "</a>" +
-									"<input type='hidden' name='title' value=" + value.IDX + ">" + 
+									"<input type='hidden' id='post_id' name='POST_ID' value=" + value.POST_ID + ">" + 
 								"</td>" +
 								"<td>" + value.HIT_CNT + "</td>" + 
 								"<td>" + value.CREA_DTM + "</td>" + 

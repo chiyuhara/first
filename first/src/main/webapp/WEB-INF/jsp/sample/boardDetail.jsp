@@ -14,9 +14,10 @@
 		</colgroup>
 		<caption>게시글 상세</caption>
 		<tbody>
+				<input type="hidden" id="BBS_ID" value=${map.BBS_ID}>
 			<tr>
 				<th scope="row">글 번호</th>
-				<td>${map.IDX }</td>
+				<td>${map.POST_ID }</td>
 				<th scope="row">조회수</th>
 				<td>${map.HIT_CNT }</td>
 			</tr>
@@ -79,10 +80,10 @@
 		}
 		
 		function fn_openBoardUpdate(){
-			var idx = "${map.IDX}";
+			var post_id = "${map.POST_ID}";
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/sample/openBoardUpdate.do' />");
-			comSubmit.addParam("IDX", idx);
+			comSubmit.addParam("POST_ID", post_id);
 			comSubmit.submit();
 		}
 		

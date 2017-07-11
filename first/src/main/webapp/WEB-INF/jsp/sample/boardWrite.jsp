@@ -13,6 +13,7 @@
 			</colgroup>
 			<caption>게시글 작성</caption>
 			<tbody>
+					<input type="hidden" id="BBS_ID" name="BBS_ID" value="1">
 				<tr>
 					<th scope="row">제목</th>
 					<td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>

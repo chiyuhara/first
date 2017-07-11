@@ -54,7 +54,9 @@ public class SampleController {
 	@RequestMapping(value="/sample/insertBoard.do")
 	public ModelAndView insertBoard(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/sample/openBoardList.do");
-		
+		System.out.println(commandMap.getMap());
+		System.out.println("request" + request);
+
 		sampleService.insertBoard(commandMap.getMap(), request);
 		
 		return mv;
@@ -65,6 +67,7 @@ public class SampleController {
 		ModelAndView mv = new ModelAndView("/sample/boardDetail");
 		
 		Map<String,Object> map = sampleService.selectBoardDetail(commandMap.getMap());
+		System.out.println(commandMap.getMap());
 		mv.addObject("map", map.get("map"));
 		mv.addObject("list", map.get("list"));
 		

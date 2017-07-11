@@ -40,6 +40,7 @@ public class SampleServiceImpl implements SampleService{
 
 	@Override
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {
+		System.out.println(map);
 		sampleDAO.updateHitCnt(map);
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		Map<String, Object> tempMap = sampleDAO.selectBoardDetail(map);
