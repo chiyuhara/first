@@ -7,7 +7,7 @@
 		<include refid="common.pagingPre"/> 
 		<![CDATA[
 		  SELECT
-				ROW_NUMBER() OVER (ORDER BY POST_ID DESC) RNUM,
+				ROW_NUMBER() OVER (ORDER BY POST_ID ASC) RNUM,
 			    POST_ID,
 			    TITLE,
 			    HIT_CNT,
@@ -20,7 +20,7 @@
 		<include refid="common.pagingPost"/> 
 	</select>
 	
-	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="POST_ID">
 		<selectKey keyProperty="POST_ID" resultType="string" order="BEFORE">
 			SELECT SEQ_TB_BOARD_POST_ID.NEXTVAL FROM DUAL
 		</selectKey>
@@ -45,7 +45,7 @@
 			    0, 
 			    'N', 
 			    SYSDATE, 
-			    'Admin'
+			    '관리자'
 			)
 		]]>
 	</insert>

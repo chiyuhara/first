@@ -33,6 +33,7 @@
 			) AAA
 			WHERE 
 			    AAA.RNUM BETWEEN #{START} AND #{END}
+ 			ORDER BY RNUM DESC
  		]]>
  	</sql>
 </mapper>
