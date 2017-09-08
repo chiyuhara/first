@@ -3,9 +3,15 @@
 
 <mapper namespace="member">
 	
-	
+	<select id="userCheck" parameterType="hashmap" resultType="String">
+	  SELECT
+	  	     NVL(LOGIN_ID,0)
+	  	FROM TB_USER
+       WHERE LOGIN_ID = #{login_id}
+	   	    
+	</select>
 	<insert id="insertUser" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		<selectKey keyProperty="POST_ID" resultType="string" order="BEFORE">
+		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
 			SELECT SEQ_TB_USER_IDX.NEXTVAL FROM DUAL
 		</selectKey>
 		<![CDATA[
@@ -25,7 +31,7 @@
 				#{pass},
 				#{name},
 			    'N', 
-			    SYSDATE, 
+			    SYSDATE
 			)
 		]]>
 	</insert>

@@ -1,10 +1,14 @@
 package first.member.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 public interface MemberService {
 
-	void insertUser(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	int insertUser(Map<String, Object> map) throws Exception;
+	
+    Object userCheck(Map<String, Object> map) throws Exception;
+	
 }

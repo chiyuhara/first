@@ -30,22 +30,22 @@ var closePopup = function() {
             <tbody>
                 <tr> 
                     <td class="lb">* 이름</td> 
-                    <td><input type="text" id="name" name="name" style="width: 130px;" value=""/></td>
+                    <td><input type="text" id="name" name="name" style="width: 130px;" value="" maxlength="5"/></td>
                     <td></td> 
                 </tr> 
                 <tr> 
                     <td class="lb">* 아이디</td> 
-                    <td><input type="text" id="id" name="id" style="width: 130px;" value="" /></td>
-                    <td></td> 
+                    <td><input type="text" id="id" name="id" style="width: 130px;" value="" onkeyup="javascript:idCheck()" maxlength="12"/></td>
+                    <td id="idCheck" value="0"></td> 
                 </tr> 
                 <tr> 
                     <td class="lb">* 비밀번호</td> 
-                    <td><input type="password" id="password" name="password" style="width: 130px;" value=""/></td>
+                    <td><input type="password" id="password" name="password" style="width: 130px;" value="" maxlength="12"/></td>
                     <td></td> 
                 </tr> 
                 <tr> 
                     <td class="lb">* 비밀번호 확인</td> 
-                    <td><input type="password" id="password2" name="password2" style="width: 130px;" onkeyup="javascript:passwordCheck()" value=""/></td>
+                    <td><input type="password" id="password2" name="password2" style="width: 130px;" onkeyup="javascript:passwordCheck()" value="" maxlength="12"/></td>
                     <td id="passwordCheckTD"></td> 
                 </tr> 
  
@@ -56,7 +56,7 @@ var closePopup = function() {
 		<tr height="5px"><td></td></tr>
 		<tr>
 			<td>
-				<input  type="button" value="가입" tabindex="3" onclick="ajaxPostSend();"
+				<input  type="button" value="가입" tabindex="3" onclick="ajaxPostSend()"
 				 style="width: 100px; height: 30px; border-color: #FFFFFF; background-color:#8C8C8C ;
 				 font-size: 15pt;font-weight: bold ;font-family: 굴림; color: #FFFFFF; vertical-align:middle; text-align: center;">
 				 <input  type="button" value="취소" tabindex="3" onclick="javascript:closePopup()"

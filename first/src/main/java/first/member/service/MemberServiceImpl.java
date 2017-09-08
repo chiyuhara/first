@@ -17,9 +17,15 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO memberDAO;
 	
 	@Override
-	public void insertUser(Map<String, Object> map, HttpServletRequest request) throws Exception {
+	public int insertUser(Map<String, Object> map) throws Exception {
 		
-		memberDAO.insertUser(map);
+		return memberDAO.insertUser(map);
 		
+	}
+
+	@Override
+	public Object userCheck(Map<String, Object> map) throws Exception {		
+		
+		return memberDAO.userCheck(map);
 	}
 }

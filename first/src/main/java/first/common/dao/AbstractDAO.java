@@ -58,6 +58,11 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId,params);
 	}
 	
+	public int insertUser(String queryId, Object params){
+		printQueryId(queryId);
+		return sqlSession.update(queryId, params);
+	}
+	
 	/*@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map selectPagingList(String queryId, Object params){
 		printQueryId(queryId);

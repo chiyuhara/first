@@ -1,9 +1,10 @@
 var ajaxPostSend =  function() {
-	console.log("어휴....");
 	var id = $("input[name=id]").val();
 	var pass = $("input[name=password]").val();
 	var pass2 = $("input[name=password2]").val();
 	var name = $("input[name=name]").val();
+	var check = $('.idCheck').attr('check');
+	alert(check);
 	
 	if(name == ""){
 		alert("이름를 입력해주세요.");
@@ -26,10 +27,13 @@ var ajaxPostSend =  function() {
 		alert("입력한 비밀번호가 일치 하지 않습니다. ");
 		$('#password2').focus();
 		return false;
+	}else if(check == 0){
+		alert("아이디 중복체크를 해주세요.")
+		return false;
 	}
 	
 	parent.startLayer();
-	var url = "joinAjax.blog";
+	var url = "join.do";
 	var postString = "";
 	postString   = "login_id=" + $('#id').val();
 	postString += "&pass=" + $('#password').val();
